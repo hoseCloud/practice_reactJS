@@ -7,17 +7,17 @@
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
 <script type="text/babel">
-    function Btn({ text, onClick }) {
-        console.log({ text }, "was rendered");
+    function Btn({ text, fontSize = 14 }) {
         return <button
-            onClick={onClick}
             style={{
                 backgroundColor: "tomato",
                 color: "white",
                 padding: "10px 20px",
                 border: 0,
                 borderRadius: 10,
+                fontSize,
             }}
         >
             {text}
@@ -25,12 +25,14 @@
     }
     const MemorizedBtn = React.memo(Btn);
     function App() {
-        const [text, setText] = React.useState("Save Change");
-        const ChangeText = () => setText("Revert Changes");
+        Btn.propTypes = {
+            text: PropTypes.string.isRequired,
+            fontSize: PropTypes.number,
+        }
         return (
             <div>
-                <MemorizedBtn text={text} onClick={ChangeText} />
-                <MemorizedBtn text="Confirm" />
+                <MemorizedBtn text="Save Changes" fontSize={18} />
+                <MemorizedBtn text="Continue" />
             </div>
         );
     };
