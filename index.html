@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
     <div id="root"></div>
 </body>
@@ -9,18 +10,33 @@
 <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById("root"));
     function App() {
-        let [counter, setCounter] = React.useState(0);
-        const onClick = () => {
-            // setCounter(++counter);
-            setCounter((current) => current + 1);
+        const [amount, setAmount] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+        const onChange = (event) => {
+            setAmount(event.target.value);
         }
+        const reset = () => {
+            setAmount(0);
+            setFlipped(false);
+        }
+        const onFlip = () => setFlipped((current) => !current);
         return (
             <div>
-                <h3>Total clicks: {counter}</h3>
-                <button onClick={onClick}>Click me</button>
+                <h1>Super Converter</h1>
+                <label htmlFor="minutes">Minutes</label>
+                <div>
+                    <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped} />
+                </div>
+                <label htmlFor="hours">Hours</label>
+                <div>
+                    <input value={flipped ? amount : Math.round(amount / 60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!flipped} />
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>Flip</button>
             </div>
         );
     };
-    root.render(<App/>);
+    root.render(<App />);
 </script>
+
 </html>
