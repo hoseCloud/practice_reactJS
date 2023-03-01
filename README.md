@@ -3,6 +3,7 @@
 Hi, This repository is for learning reactJS **FOR ME**, not you.
 If you want to see my work, welceom to here!
 Please fell free to see around.
+Here is a [link](https://hosecloud.github.io/practice_reactJS/)!
 
 And thanks nomad coders for providing [this lecture](https://nomadcoders.co/react-for-beginners/lobby)!
 
