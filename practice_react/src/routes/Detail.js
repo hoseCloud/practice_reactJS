@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import DetailMovie from "../components/DetailMovie";
 
-// Add loading
-// Add to show detail in page
-
 function Detail() {
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState(null);

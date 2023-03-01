@@ -1,7 +1,5 @@
 import { PropTypes } from "prop-types";
 
-// big img, title, year, runtime, rating, summary, genres
-
 function DetailMovie({
   coverImage,
   title,
