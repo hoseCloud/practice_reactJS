@@ -6,7 +6,7 @@ function Movie({ id, coverImage, title, summary, genres }) {
     summary = summary.slice(0, 500) + "...";
   }
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-amber-100">
       <img className="w-full p-2" src={coverImage} alt={title} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">
