@@ -10,20 +10,25 @@ function DetailMovie({
   genres,
 }) {
   return (
-    <div>
-      <img src={coverImage} alt={title} />
-      <h2>
+    <div className="flex flex-col items-center justify-center text-center bg-amber-200 rounded-md p-5 space-y-3">
+      <img src={coverImage} alt={title} className="rounded-lg w-auto" />
+      <h2 className="text-xl font-bold">
         {title} ({year})
       </h2>
-      <h3>
-        runtime: {runtime}, rating: {rating}
+      <h3 className="text-gray-700">
+        Runtime: {runtime}m | Rating: {rating}
       </h3>
-      <p>{summary}</p>
-      <ul>
+      <p className="text-lg">{summary}</p>
+      <div className="px-6 pt-4 pb-2">
         {genres.map((genre) => (
-          <li key={genre}>{genre}</li>
+          <span
+            key={genre}
+            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-1"
+          >
+            {genre}
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
