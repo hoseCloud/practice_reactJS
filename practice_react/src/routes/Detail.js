@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Loading from "../components/Loading";
 import DetailMovie from "../components/DetailMovie";
 
 function Detail() {
@@ -22,7 +23,7 @@ function Detail() {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <DetailMovie
           coverImage={movie.large_cover_image}
